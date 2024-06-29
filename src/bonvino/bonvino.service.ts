@@ -44,6 +44,14 @@ export class BonvinoService {
     private readonly detalleVarietalModel: Model<DetalleVarietal>,
   ) {}
 
+
+
+  /* 
+  *  MÉTODOS PUT
+  */
+
+
+
   async createPais(createPaisDto: CreatePaisDto): Promise<Pais> {
     const createdPais = new this.paisModel(createPaisDto);
     return createdPais.save();
@@ -108,20 +116,111 @@ export class BonvinoService {
     return createdDetalleVarietal.save();
   }
 
-  async getPaises(): Promise<Pais[]> {
+
+
+  /*
+  *  MÉTODOS DELETE - Devuelven void porque es borrar justamente
+  */
+
+
+
+  async deletePais(id: string): Promise<void> {
+    await this.paisModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando País con ID: ${id}`);
+  }
+
+  async deleteMaridaje(id: string): Promise<void> {
+    await this.maridajeModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando Maridaje con ID: ${id}`);
+  }
+
+  async deleteResenia(id: string): Promise<void> {
+    await this.reseñaModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando Reseña con ID: ${id}`);
+  }
+
+  async deleteTipoUva(id: string): Promise<void> {
+    await this.tipoUvaModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando TipoUva con ID: ${id}`);
+  }
+
+  async deleteVarietal(id: string): Promise<void> {
+    await this.varietalModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando Varietal con ID: ${id}`);
+  }
+
+  async deleteProvincia(id: string): Promise<void> {
+    await this.provinciaModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando Provincia con ID: ${id}`);
+  }
+
+  async deleteRegionVitivinicola(id: string): Promise<void> {
+    await this.regionVitivinicolaModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando RegionVitivinicola con ID: ${id}`);
+  }
+
+  async deleteDetalleVarietal(id: string): Promise<void> {
+    await this.detalleVarietalModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando DetalleVarietal con ID: ${id}`);
+  }
+
+  async deleteBodega(id: string): Promise<void> {
+    await this.bodegaModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando Bodega con ID: ${id}`);
+  }
+
+  async deleteVino(id: string): Promise<void> {
+    await this.vinoModel.findByIdAndDelete(id).exec();
+    console.log(`Eliminando Vino con ID: ${id}`);
+  }
+
+
+
+  /*
+  *    MÉTODOS GET
+  */
+
+
+
+  async findAllPaises(): Promise<Pais[]> {
     return this.paisModel.find().exec();
   }
 
-  async getVinos(): Promise<Vino[]> {
-    return this.vinoModel.find().exec();
+  async findAllMaridajes(): Promise<Maridaje[]> {
+    return this.maridajeModel.find().exec();
   }
 
-  async deletePais(id: string): Promise<void> {
-    return this.paisModel.findByIdAndDelete(id);
+  async findAllResenias(): Promise<Reseña[]> {
+    return this.reseñaModel.find().exec();
   }
 
+  async findAllTiposUvas(): Promise<TipoUva[]> {
+    return this.tipoUvaModel.find().exec();
+  }
+
+  async findAllVarietales(): Promise<Varietal[]> {
+    return this.varietalModel.find().exec();
+  }
   async findAllProvincias(): Promise<Provincia[]> {
     return this.provinciaModel.find().exec();
   }
+
+  async findAllRegionesVitivinicolas(): Promise<RegionVitivinicola[]> {
+    return this.regionVitivinicolaModel.find().exec();
+  }
+
+  async findAllDetallesVarietal(): Promise<DetalleVarietal[]> {
+    return this.detalleVarietalModel.find().exec();
+  }
+
+  async findAllBodegas(): Promise<Bodega[]> {
+    return this.bodegaModel.find().exec();
+  }
+
+  async findAllVinos(): Promise<Vino[]> {
+    return this.vinoModel.find().exec();
+  }
+
+ 
 
 }

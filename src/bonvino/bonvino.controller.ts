@@ -29,6 +29,13 @@ import {
 export class BonvinoController {
   constructor(private readonly bonvinoService: BonvinoService) {}
 
+
+  /*
+  *    MÉTODOS POST
+  */
+
+
+
   @Post('pais')
   async createPais(@Body() createPaisDto: CreatePaisDto): Promise<Pais> {
     return this.bonvinoService.createPais(createPaisDto);
@@ -97,23 +104,121 @@ export class BonvinoController {
     return this.bonvinoService.createDetalleVarietal(createDetalleVarietalDto);
   }
 
-  @Get('pais')
-  async findAllPaises(): Promise<Pais[]> {
-    return this.bonvinoService.getPaises();
-  }
+
+
+  /*
+  *    MÉTODOS DELETE
+  */
+
+
 
   @Delete('pais/:id')
   async deletePais(@Param('id') id: string): Promise<void> {
     this.bonvinoService.deletePais(id);
   }
 
-  @Get('vino')
-  async getVinos(): Promise<Vino[]> {
-    return this.bonvinoService.getVinos();
+  @Delete('maridaje/:id')
+  async deleteMaridaje(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteMaridaje(id);
+  }
+  
+  @Delete('resenia/:id')
+  async deleteResenia(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteResenia(id);
+  }
+  
+  @Delete('tipoUva/:id')
+  async deleteTipoUva(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteTipoUva(id);
+  }
+  
+  @Delete('varietal/:id')
+  async deleteVarietal(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteVarietal(id);
+  }
+  
+  @Delete('provincia/:id')
+  async deleteProvincia(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteProvincia(id);
+  }
+  
+  @Delete('regionVitivinicola/:id')
+  async deleteRegionVitivinicola(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteRegionVitivinicola(id);
+  }
+  
+  @Delete('detalleVarietal/:id')
+  async deleteDetalleVarietal(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteDetalleVarietal(id);
+  }
+  
+  @Delete('bodega/:id')
+  async deleteBodega(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteBodega(id);
+  }
+  
+  @Delete('vino/:id')
+  async deleteVino(@Param('id') id: string): Promise<void> {
+    this.bonvinoService.deleteVino(id);
+  }
+
+
+
+
+  /*
+  *    MÉTODOS GET
+  */
+
+
+
+  @Get('pais')
+  async findAllPaises(): Promise<Pais[]> {
+    return this.bonvinoService.findAllPaises();
+  }
+
+  @Get('maridaje')
+  async findAllMaridajes(): Promise<Maridaje[]> {
+    return this.bonvinoService.findAllMaridajes();
+  }
+
+  @Get('resenia')
+  async findAllResenias(): Promise<Reseña[]> {
+    return this.bonvinoService.findAllResenias();
+  }
+
+  @Get('tipoUva')
+  async findAllTiposUvas(): Promise<TipoUva[]> {
+    return this.bonvinoService.findAllTiposUvas();
+  }
+
+  @Get('varietal')
+  async findAllVarietales(): Promise<Varietal[]> {
+    return this.bonvinoService.findAllVarietales();
   }
 
   @Get('provincia')
   async findAllProvincias(): Promise<Provincia[]> {
     return this.bonvinoService.findAllProvincias();
   }
+
+  @Get('regionVitivinicola')
+  async findAllRegionesVitivinicolas(): Promise<RegionVitivinicola[]> {
+    return this.bonvinoService.findAllRegionesVitivinicolas();
+  }
+
+  @Get('detalleVarietal')
+  async findAllDetallesVarietal(): Promise<DetalleVarietal[]> {
+    return this.bonvinoService.findAllDetallesVarietal();
+  }
+
+  @Get('bodega')
+  async findAllBodegas(): Promise<Bodega[]> {
+    return this.bonvinoService.findAllBodegas();
+  }
+
+  @Get('vino')
+  async findAllVinos(): Promise<Vino[]> {
+    return this.bonvinoService.findAllVinos();
+  }
+
 }
