@@ -94,6 +94,7 @@ export class BonvinoController {
 
   @Post('vino')
   async createVino(@Body() createVinoDto: CreateVinoDto): Promise<Vino> {
+    console.log("creando vino")
     return this.bonvinoService.createVino(createVinoDto);
   }
 
