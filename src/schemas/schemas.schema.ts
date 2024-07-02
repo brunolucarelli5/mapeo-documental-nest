@@ -138,7 +138,7 @@ export class Vino extends Document {
   maridaje: MongooseSchema.Types.ObjectId | Maridaje;
 
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Reseña', required: false })
-  reseña: MongooseSchema.Types.ObjectId | Reseña;
+  resenia: MongooseSchema.Types.ObjectId | Reseña;
 }
 
 export const VinoSchema = SchemaFactory.createForClass(Vino);
