@@ -114,7 +114,7 @@ export const BodegaSchema = SchemaFactory.createForClass(Bodega);
 @Schema({ timestamps: true })
 export class Vino extends Document {
   @Prop({ required: true })
-  añada: number;
+  aniada: number;
 
   @Prop({ default: Date.now })
   fechaActualizacion: Date;
