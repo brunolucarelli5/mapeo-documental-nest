@@ -114,7 +114,7 @@ export const BodegaSchema = SchemaFactory.createForClass(Bodega);
 @Schema({ timestamps: true })
 export class Vino extends Document {
   @Prop({ required: true })
-  añada: number;
+  aniada: number;
 
   @Prop({ default: Date.now })
   fechaActualizacion: Date;
@@ -137,8 +137,8 @@ export class Vino extends Document {
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Maridaje', required: true })
   maridaje: MongooseSchema.Types.ObjectId | Maridaje;
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Reseña', required: true })
-  reseña: MongooseSchema.Types.ObjectId | Reseña;
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Resenia', required: true })
+  resenia: MongooseSchema.Types.ObjectId | Reseña;
 }
 
 export const VinoSchema = SchemaFactory.createForClass(Vino);
