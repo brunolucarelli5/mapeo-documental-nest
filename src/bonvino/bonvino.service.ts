@@ -104,6 +104,8 @@ export class BonvinoService {
 
   async createVino(createVinoDto: CreateVinoDto): Promise<Vino> {
     const createdVino = new this.vinoModel(createVinoDto);
+    console.log(createdVino)
+    console.log(createVinoDto)
     return createdVino.save();
   }
 

@@ -119,7 +119,7 @@ export class Vino extends Document {
   @Prop({ default: Date.now })
   fechaActualizacion: Date;
 
-  @Prop({ required: true })
+  @Prop({ required: false })
   imagenEtiqueta: string;
 
   @Prop({ required: true })
@@ -137,7 +137,7 @@ export class Vino extends Document {
   @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Maridaje', required: true })
   maridaje: MongooseSchema.Types.ObjectId | Maridaje;
 
-  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Reseña', required: true })
+  @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Reseña', required: false })
   reseña: MongooseSchema.Types.ObjectId | Reseña;
 }
 
